@@ -1,17 +1,14 @@
-using ControllerExample.Controllers;
-
-namespace ControllerExample
+namespace IActionResultExample
 {
 	public class Program
 	{
 		public static void Main(string[] args)
 		{
 			var builder = WebApplication.CreateBuilder(args);
-			builder.Services.AddControllers();	//Adding all the controllers as services.
+			builder.Services.AddControllers();
 			var app = builder.Build();
-
-			app.MapControllers(); //Mapping all the controllers
 			app.UseStaticFiles();
+			app.MapControllers();
 			app.Run();
 		}
 	}
