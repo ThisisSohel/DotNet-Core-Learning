@@ -8,20 +8,23 @@ var app = builder.Build();
 app.Use(async (HttpContext context, RequestDelegate next) =>
 {
 
-    await context.Response.WriteAsync("Hello Middleware1 - ");
+    await context.Response.WriteAsync("Hello Middleware1 -\n");
     await next(context); // Passes control to the next middleware
 });
 
 // Middleware2
-app.UseMiddleware<MyCustomMiddleware>();
+//app.UseMiddleware<MyCustomMiddleware>();
 
 //Now I am using extention method to invoke the custom middleware
 //app.UseMyCustomMiddleware();
 
+// Creating custom Middleware class and invoke the method. 
+app.UseHelloCustomMiddleware();
+
 // Middleware3 (Terminal middleware)
 app.Run(async (HttpContext context) =>
 {
-    await context.Response.WriteAsync(" Middleware3");
+    await context.Response.WriteAsync("Middleware3\n");
 });
 
 app.Run();

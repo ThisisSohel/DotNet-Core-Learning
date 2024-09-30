@@ -6,9 +6,9 @@ namespace MiddlwareExample.CustomMiddleware
     {
         public async Task InvokeAsync(HttpContext context, RequestDelegate next)
         {
-            await context.Response.WriteAsync(" My Custom Middleware starts .... ");
+            await context.Response.WriteAsync(" My Custom Middleware starts ....\n ");
             await next(context);
-            await context.Response.WriteAsync(" My Custom Middleware ends ");
+            await context.Response.WriteAsync(" My Custom Middleware ends /n");
 
         }
     }
