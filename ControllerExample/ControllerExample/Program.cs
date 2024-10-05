@@ -11,7 +11,7 @@ namespace ControllerExample
 			var app = builder.Build();
 
 			app.MapControllers(); //Mapping all the controllers
-			app.UseStaticFiles();
+			app.UseStaticFiles(); //it is responsible for the static files like pdf, image, etc
 			app.Run();
 		}
 	}

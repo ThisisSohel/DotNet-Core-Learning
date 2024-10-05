@@ -64,5 +64,13 @@ namespace ControllerExample.Controllers
 		{
 			return new PhysicalFileResult(@"C:\\Users\\hp\\Desktop\\Cv of Sohel Rana.pdf", "application/pdf");
 		}
+
+		//Reading a file from a specific file from the computer.
+		[Route("file-download3")]
+		public IActionResult PhysicalFileResult()
+		{
+			byte[] bytes =  System.IO.File.ReadAllBytes("@C:\\Users\\hp\\Desktop\\JobApplicationThings");
+			return new FileContentResult(bytes, "application/pdf");
+		}
 	}
 }
