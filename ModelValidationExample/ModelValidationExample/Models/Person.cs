@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using ModelValidationExample.CustomValidation;
 using System.ComponentModel.DataAnnotations;
 
 namespace ModelValidationExample.Models
@@ -29,6 +30,16 @@ namespace ModelValidationExample.Models
         [Range(0, 999.9, ErrorMessage ="{0} can not be more than {2} and less than {1}")]
         public double? Price { get; set; }
 
+        [MinimumYearValidatorAttribute(2000, 2019, ErrorMessage = "Hello Error from dob")]
+        public DateTime DateOfBirth { get; set; }
+
+        [NationalityValidatorAttribute (ErrorMessage ="Hello error from Nationality!")]
+        public string? Nationality { get; set; }
+
+        public DateTime FromDate { get; set; }
+
+        [DateRangeValidator("FromDate", ErrorMessage = "From_date can not be older than to_date!")]
+        public DateTime ToDate { get; set; }
         public override string ToString()
         {
             return $"Name: {PersonName} - Email: {Email} - Phone: {Phone} - Password {Password} - ConfirmPassword: {ConfirmPassword} - Price {Price}";
