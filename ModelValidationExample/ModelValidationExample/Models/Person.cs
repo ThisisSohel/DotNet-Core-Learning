@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using ModelValidationExample.CustomValidation;
 using System.ComponentModel.DataAnnotations;
 
@@ -16,6 +17,7 @@ namespace ModelValidationExample.Models
         public string? PersonName { get; set; }
 
         [EmailAddress(ErrorMessage = "{0} is not in correct format!")]
+        //[BindNever]
         public string? Email { get; set; }
 
         [Phone(ErrorMessage = "{0} is not in correct format")]
@@ -31,6 +33,7 @@ namespace ModelValidationExample.Models
         public double? Price { get; set; }
 
         [MinimumYearValidatorAttribute(2000, 2019, ErrorMessage = "Hello Error from dob")]
+        [BindNever]
         public DateTime DateOfBirth { get; set; }
 
         [NationalityValidatorAttribute (ErrorMessage ="Hello error from Nationality!")]
@@ -40,7 +43,9 @@ namespace ModelValidationExample.Models
 
         [DateRangeValidator("FromDate", ErrorMessage = "From_date can not be older than to_date!")]
         public DateTime ToDate { get; set; }
-        public override string ToString()
+
+        public List<string?> Tags { get; set; } = new List<string?>();
+         public override string ToString()
         {
             return $"Name: {PersonName} - Email: {Email} - Phone: {Phone} - Password {Password} - ConfirmPassword: {ConfirmPassword} - Price {Price}";
         }

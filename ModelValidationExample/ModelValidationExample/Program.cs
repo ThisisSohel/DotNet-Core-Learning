@@ -1,3 +1,5 @@
+using ModelValidationExample.CustomModelBinders;
+
 namespace ModelValidationExample
 {
     public class Program
@@ -5,7 +7,14 @@ namespace ModelValidationExample
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-            builder.Services.AddControllers();
+
+            //Configuring PersonBinderProvider.
+            builder.Services.AddControllers(option =>
+            {
+                //option.ModelBinderProviders.Insert(0, new PersonBinderProvider());
+            });
+
+            builder.Services.AddControllers().AddXmlSerializerFormatters();
             var app = builder.Build();
 
             app.UseStaticFiles();
