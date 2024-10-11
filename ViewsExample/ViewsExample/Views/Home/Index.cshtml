@@ -1,0 +1,31 @@
+﻿@using ViewsExample.Models
+@{
+    string appTitle = "ASP .NET Core App";
+    string bodyMessage = "Welcome to the App!";
+    Person person = new Person()
+    {
+        PersonName = "Sohel",
+        DateOfBirth = null
+    };
+}
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>@appTitle</title>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+        @bodyMessage
+    @if (person.DateOfBirth != null)
+    {
+        <h3>Details about the person </h3>
+        <h2>Name: @person.PersonName</h2>
+        <h2>Date of Birth: @person.DateOfBirth</h2>
+    }
+    else
+    {
+        <h3>Everything is not Okay!</h3>
+    }
+
+    </body>
+</html>
