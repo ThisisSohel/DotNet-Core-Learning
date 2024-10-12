@@ -1,0 +1,46 @@
+﻿@using ViewsExample.Models
+@model Person
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Person Details</title>
+    <link href="~/StyleSheet.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="page-content">
+        <h1>Details about the person</h1>
+
+        @if (Model != null)
+        {
+            <table class="table table-bordered w-50">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Date Of Birth</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Name</td>
+                        <td>@Model.PersonName</td>
+                    </tr>
+                    <tr>
+                        <td>Date of Birth</td>
+                        <td>@Model.DateOfBirth</td>
+                    </tr>
+                    <tr>
+                        <td>Gender</td>
+                        <td>@Model.PersonGender</td>
+                    </tr>
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>No details available for this person.</p>
+        }
+    </div>
+</body>
+</html>

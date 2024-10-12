@@ -1,125 +1,104 @@
 ﻿@using ViewsExample.Models
+@model IEnumerable<Person>
+
 @{
-    string appTitle = "ASP .NET Core App";
-    string bodyMessage = "Welcome to the App!";
     Person person = new Person()
-            {
-                PersonName = "Sohel",
-                DateOfBirth = Convert.ToDateTime("2020-02-02"),
-                PersonGender = Gender.Female
-            };
-    List<Person> personList = new List<Person>
     {
-        new Person()
-        {
-            PersonName = "Name1", DateOfBirth = Convert.ToDateTime("2020-02-02"), PersonGender = Gender.Male,
-        },
-        new Person()
-        {
-            PersonName = "Name2", DateOfBirth = Convert.ToDateTime("2022-02-02"), PersonGender = Gender.Male,
-        },
-        new Person()
-        {
-            PersonName = "Name3", DateOfBirth = Convert.ToDateTime("2021-02-02"), PersonGender = Gender.Male,
-        },
-                new Person()
-        {
-            PersonName = "Name4", DateOfBirth = Convert.ToDateTime("2010-02-02"), PersonGender = Gender.Male,
-        },
-        new Person()
-        {
-            PersonName = "Name5", DateOfBirth = Convert.ToDateTime("2019-02-02"), PersonGender = Gender.Male,
-        },
-        new Person()
-        {
-            PersonName = "Name6", DateOfBirth = Convert.ToDateTime("2021-02-02"), PersonGender = Gender.Male,
-        },
+        PersonName = "Sohel",
+        DateOfBirth = Convert.ToDateTime("2020-02-02"),
+        PersonGender = Gender.Female
     };
-    string personCount = $"<script> alert('The number of people found {personList.Count}')</script>";
+ }  
 
 
-    @functions
+@* @functions
+{
+    int sum;
+    int number (int num)
     {
-        int sum;
-        int number (int num)
-        {
-            sum = sum + num;
-            return sum;
-        }
-    }
-
-    @functions {
-        Random random = new Random();
-        public int RandomNumberGenerator()
-        {
-            return random.Next(1, 100);
-        }
+        sum = sum + num;
+        return sum;
     }
 }
+
+@functions {
+    Random random = new Random();
+    public int RandomNumberGenerator()
+    {
+        return random.Next(20, 40);
+    }
+} *@
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>@appTitle</title>
+    <title>@ViewData["appTitle"]</title>
     <meta charset="utf-8" />
+    <link href="~/StyleSheet.css" rel="stylesheet" />
 </head>
 <body>
-    @bodyMessage
-    @if (person.DateOfBirth != null)
-    {
-        <h3>Details about the person </h3>
-        <h2>Name: @person.PersonName</h2>
-        <h2>Date of Birth: @person.DateOfBirth</h2>
-        <h2>Gender: @person.PersonGender</h2>
-    }
-    else
-    {
-        <h3>Everything is not Okay!</h3>
-    }
-
-    @switch (person.PersonGender)
-    {
-        case Gender.Male:
-            {
-                <p>Happy men's day'</p>
-                break;
-            }
-        case Gender.Female:
-            {
-                <p>Happy women's day'</p>
-                break;
-            }
-        default:
-            {
-                <p>Not a valid day!</p>
-                break;
-            }
-    }
-
-    @Html.Raw(personCount); @* this statement is used to execute JavaScript code *@ 
-
-    @foreach (var per in personList)
-    {
-        <text>hello</text>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Person Name</th>
-                    <th>Date of Birth</th>
-                    <th>Gender</th>
-                    <th>Age</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>@per.PersonName</td>
-                    <td>@per.DateOfBirth</td>
-                    <td>@per.PersonGender</td>
-                    <td>@number(RandomNumberGenerator())</td>
-                </tr>
-            </tbody>
-        </table>
-    }
+    <div class="page-content">
+        <h1>@ViewData["bodyMessage"]</h1>
 
 
+
+        @if (person.DateOfBirth != null)
+        {
+            <h3>Details about the person </h3>
+            <h2>Name: @person.PersonName</h2>
+            <h2>Date of Birth: @person.DateOfBirth</h2>
+            <h2>Gender: @person.PersonGender</h2>
+        }
+        else
+        {
+            <h3>Everything is not Okay!</h3>
+        }
+
+        @switch (person.PersonGender)
+        {
+            case Gender.Male:
+                {
+                    <p>Happy men's day'</p>
+                    break;
+                }
+            case Gender.Female:
+                {
+                    <p>Happy women's day'</p>
+                    break;
+                }
+            default:
+                {
+                    <p>Not a valid day!</p>
+                    break;
+                }
+        }
+        @{
+           // List<Person>? personList = (List<Person>?)ViewData["person"];
+        }
+
+        @foreach (var per in Model)
+        {
+            <div class="box float-left w-50">
+                <table class="table w-100">
+                    <thead>
+                        <tr>
+                            <th>Person Name</th>
+                            <th>Date of Birth</th>
+                            <th>Gender</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>@per.PersonName</td>
+                            <td>@per.DateOfBirth</td>
+                            <td>@per.PersonGender</td>
+                            @* <td>@number(RandomNumberGenerator())</td> *@
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        }
+    </div>
+    
 </body>
 </html>
