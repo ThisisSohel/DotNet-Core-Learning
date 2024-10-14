@@ -1,5 +1,4 @@
-﻿@using ViewsExample.Models
-@model IEnumerable<Person>
+﻿@model IEnumerable<Person>
 
 @{
     Person person = new Person()
@@ -75,7 +74,9 @@
         @{
            // List<Person>? personList = (List<Person>?)ViewData["person"];
         }
-
+        <div class="margin-auto">
+            <h2>Person Details</h2>
+        </div>
         @foreach (var per in Model)
         {
             <div class="box float-left w-50">
@@ -100,6 +101,10 @@
                 </table>
             </div>
         }
+
+    </div>
+    <div>
+        <a href="/person_product">Product Details</a>
     </div>
     
 </body>
