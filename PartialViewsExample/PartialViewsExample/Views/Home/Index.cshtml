@@ -1,0 +1,28 @@
+﻿@{
+    ListModel listModel = new ListModel();
+    listModel.ListTitle = "Countries";
+    listModel.ListItems = new List<string>
+    {
+        "Bangladesh",
+        "USA",
+        "UK",
+        "Japan"
+    };
+}
+
+<partial name="_ListPartialView"></partial>
+
+@{
+    ViewData["ListTitle"] = "Countries";
+    ViewData["ListItem"] = new List<string>()
+            {
+                "Bangladesh",
+                "USA",
+                "UK",
+                "Japan"
+            };
+}
+
+<div class="box">
+    <partial name="_ListPartialView" model="listModel"></partial>
+</div>
