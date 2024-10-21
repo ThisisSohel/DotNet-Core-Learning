@@ -1,4 +1,4 @@
-﻿body {
+﻿﻿body {
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	font-size: 18px;
 	background-color: #f7f7f7;
@@ -12,8 +12,6 @@
 
 .container {
 	min-width: 500px;
-	display: flex; /* Activate Flexbox */
-	height: 100vh; /* Full viewport height */
 }
 
 .navbar {
@@ -37,8 +35,7 @@
 		width: 100%;
 	}
 
-		.navbar > ul > li > a:link,
-		.navbar > ul > li > a:visited {
+		.navbar > ul > li > a:link, .navbar > ul > li > a:visited {
 			padding: 4px 8px;
 			cursor: pointer;
 			border-radius: 6px;
@@ -59,13 +56,12 @@
 }
 
 .page-content {
-	padding: 10px;
 	min-height: 90vh;
+	padding: 15px 20px;
 }
 
 .full-size-height {
 	min-height: 100vh;
-	display: flex; /* Flexbox for full height usage */
 }
 
 .table {
@@ -122,6 +118,14 @@
 	width: 100%;
 }
 
+.grey-back {
+	background-color: #dcdcdc;
+}
+
+.white-back {
+	background-color: #ffffff;
+}
+
 .text-green {
 	color: #0a8438;
 }
@@ -154,14 +158,6 @@
 	clear: both;
 }
 
-.box {
-	margin: 10px 20px;
-	padding: 15px;
-	border-radius: 8px;
-	border: 2px solid #d3d1d1;
-	box-shadow: 0px 0px 3px 2px #ffffff;
-}
-
 .blue-back {
 	background-color: #9ad3f7;
 }
@@ -180,25 +176,35 @@
 	text-align: center;
 }
 
-/* New Flexbox classes */
+.box {
+	margin: 10px 20px;
+	padding: 15px;
+	border-radius: 8px;
+	border: 2px solid #d3d1d1;
+	box-shadow: 0px 0px 3px 2px #ffffff;
+}
+
+.flex {
+	display: flex;
+	flex-wrap: wrap;
+	align-content: stretch;
+	align-items: stretch;
+}
+
+	.flex > div {
+		padding: 15px;
+	}
+
 .flex-1 {
-	flex: 1;
+	flex: 1 auto;
+}
+
+.flex-2 {
+	flex: 2 auto;
 }
 
 .flex-3 {
-	flex: 3;
-}
-
-.grey-black {
-	background-color: #727774;
-	color: white;
-	padding: 20px;
-}
-
-.white-black {
-	background-color: #ffffff;
-	color: black;
-	padding: 20px;
+	flex: 3 auto;
 }
 
 @media screen and (min-width: 1000px) {
@@ -216,8 +222,4 @@
 			display: inline-block;
 			width: auto;
 		}
-
-			.navbar > ul > li > a {
-				/* Styling for larger screens */
-			}
 }

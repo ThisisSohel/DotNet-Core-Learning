@@ -1,0 +1,39 @@
+{
+  "Version": 1,
+  "Hash": "ZPOEHTTVbggxpxSQPJ+HiGeDZUeNmNWzMrVHpnDCsaw=",
+  "Source": "ViewComponetsExample",
+  "BasePath": "_content/ViewComponetsExample",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "ViewComponetsExample\\wwwroot",
+      "Source": "ViewComponetsExample",
+      "ContentRoot": "I:\\DotNet Core Learning\\ViewComponetsExample\\ViewComponetsExample\\wwwroot\\",
+      "BasePath": "_content/ViewComponetsExample",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "I:\\DotNet Core Learning\\ViewComponetsExample\\ViewComponetsExample\\wwwroot\\StyleSheet.css",
+      "SourceId": "ViewComponetsExample",
+      "SourceType": "Discovered",
+      "ContentRoot": "I:\\DotNet Core Learning\\ViewComponetsExample\\ViewComponetsExample\\wwwroot\\",
+      "BasePath": "_content/ViewComponetsExample",
+      "RelativePath": "StyleSheet.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\StyleSheet.css"
+    }
+  ]
+}

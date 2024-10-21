@@ -20,7 +20,17 @@
 
     @* This is the different way to invoke partial views *@
 
-    @{
-        await Html.RenderPartialAsync("_ListPartialView");
-    }
+@{
+    ListModel listModel = new ListModel();
+    listModel.ListTitle = "Programing Languages";
+    listModel.ListItems = new List<string>
+    {
+        "C++",
+        "Java",
+        "C#",
+        "Pyhon"
+     };
+
+     await Html.RenderPartialAsync("_ListPartialView", listModel);
+}
 </div>
